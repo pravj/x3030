@@ -3,7 +3,7 @@
 #-----------------------------------------------
 # Mapgen Iterative division
 #-----------------------------------------------
-# Originally written by Mau Magnaguagno
+# Extended from the version by Mau Magnaguagno
 #-----------------------------------------------
 
 require 'json'

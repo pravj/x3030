@@ -23,7 +23,7 @@ block content
         br
 
         .tabnav
-          a.btn.btn-default.right(href='#') New Game
+          a.btn.btn-default.right(href='#' class='init') New Game
           nav.tabnav-tabs
             a.tabnav-tab.selected(href='')
               b x3030
@@ -41,9 +41,9 @@ block content
   .container
     .columns
       .two-third.column.centered
-        .flash(style='visibility:visible;')
+        .flash(style='visibility:hidden;')
           | Woot! You have completed this level. 
-          button.btn.btn-sm.btn-outline(type='button') Start New Game
+          button.btn.btn-sm.btn-outline(type='button' class='init') Start New Game
 
         - height = 13
         - width = 49
