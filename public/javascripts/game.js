@@ -1,5 +1,6 @@
 var maze_data = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,0],[0,0,0,1,0,1,1,1,1,1,1,1,1,0,0,1,1,0,0,0,0,1,0,1,0,0,0,1,1,0,0,1,0,1,1,1,1,0,0,1,0,1,1,0,0,1,0,1,0],[0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1,0,1,0],[0,1,1,0,0,1,0,0,0,0,0,0,0,1,1,0,0,1,0,1,1,0,0,1,0,1,1,1,0,1,1,0,0,1,0,0,0,1,1,0,0,1,0,1,1,0,0,1,0],[0,1,1,1,1,1,1,1,1,1,0,1,0,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,0,1,1,1,1,1,0],[0,0,0,1,1,0,0,0,0,1,0,1,0,1,0,1,1,0,0,1,1,0,0,0,0,0,0,1,1,0,0,1,1,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0],[0,1,1,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,0,1,1,1,1,1,0],[0,0,0,1,0,1,1,1,1,1,1,1,0,0,0,1,1,0,0,0,0,1,0,1,0,1,0,1,1,1,0,0,0,0,0,1,1,0,0,0,0,1,0,1,1,0,0,1,0],[0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,0,0,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1,0,0,1,0],[0,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,1,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
 
+// image URL's for all the required emojis
 var door_image = 'https://assets-cdn.github.com/images/icons/emoji/unicode/1f6aa.png?v5';
 var bear_image = 'https://assets-cdn.github.com/images/icons/emoji/unicode/1f43b.png?v5';
 var tree_image = 'https://assets-cdn.github.com/images/icons/emoji/unicode/1f332.png?v5';
@@ -13,11 +14,12 @@ var bad_url = 'http://example.org/%%30%30';
 var width = 49;
 var height = 13;
 
+// arranges the images and links on maze accordingly
 var generate_board = function() {
 	for (var i = 0; i < height; i++) {
 		for (var j = 0; j < width; j++) {
+			// fence rectangle
 			if ((i == 0) || (i == height - 1) || (j == 0) || (j == width - 1)) {
-				// fence rectangle
 				$('#' + (width*i + j) + ' a img').attr('src', wall_image);
 				$('#' + (width*i + j) + ' a').attr('href', bad_url);
 			} else {
@@ -59,7 +61,7 @@ var generate_board = function() {
 $(window).load(generate_board);
 
 $(document).ready(function() {
-	var first, second, third;
+	var first, second;
 
 	$('.init').click(function() {
 		$('.flash').css('visibility', 'hidden');
@@ -69,7 +71,6 @@ $(document).ready(function() {
 
 		first = false;
 		second = false;
-		third = false;
 
 		$('.exit-friend').mouseover(function(){
 			first = true;
@@ -81,8 +82,10 @@ $(document).ready(function() {
 		});
 		$('.exit').mouseover(function() {
 			if (first && second) {
-				third = true;
 				$('.flash').css('visibility', 'visible');
+
+				first = true;
+				second = true;
 			};
 		});
 	});

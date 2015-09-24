@@ -22,8 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
-app.get('/maze/:id', routes.maze);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('x3030 server listening on port ' + app.get('port'));
+  console.log('x3030 server running on port ' + app.get('port'));
 });
