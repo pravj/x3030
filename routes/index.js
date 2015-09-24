@@ -1,15 +1,9 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-	if (typeof req.cookies.level == 'undefined') {
-		res.cookie('level', 1);
-	} else {
-		res.cookie('level', parseInt(req.cookies.level) + 1);
-	};
-
+/* GET home page */
+exports.index = function(req, res) {
 	res.render('index', { title: 'x3030' });
-});
+}
 
-module.exports = router;
+/* GET maze data in JSON format */
+exports.maze = function(req, res) {
+	res.send('MAZE');
+}
