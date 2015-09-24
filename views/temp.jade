@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  - var n = 0
+  ul
+    while n < 4
+      span
+        a(href='http://pravj.github.io')
+          img(width='20' src='https://raw.githubusercontent.com/szhu/3030/master/src/u1f332.png')
+        - n++
+
+  #container.col
+    span
+      a(href='http://www.ottoquattro.com') This
+    span
+      a(href='http://www.ottoquattro.com') This
+    span
+      a(href='http://www.ottoquattro.com') This
+    span
+      a(href='http://www.ottoquattro.com') This
