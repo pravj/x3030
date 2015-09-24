@@ -9,9 +9,9 @@ block content
       .two-half.column.centered
         .blankslate.capped
           p
-            | Your task is to enter through the 
-            b door 
-            | and guide the 
+            | Your task is to pass through the 
+            b doors 
+            | while guiding the 
             b bear 
             | to the 
             b honeypot 
@@ -28,29 +28,28 @@ block content
             a.tabnav-tab.selected(href='')
               b x3030
             span
-              | &nbsp; Maze game for browsers based on that 
-              a(href='https://code.google.com/p/chromium/issues/detail?id=533361') bug in Google Chrome.
+              | &nbsp; Maze game for Google Chrome based on 
+              a(href='https://code.google.com/p/chromium/issues/detail?id=533361') that bug.
+              | &nbsp;&nbsp;&nbsp;&nbsp;
+              a.twitter-share-button(href='https://twitter.com/share', data-url='http://x3030.herokuapp.com', data-via='hackpravj', data-hashtags='3030TheChromeBug') Tweet
+              script.
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+              | &nbsp;&nbsp;&nbsp;&nbsp;
+              iframe(src='https://ghbtns.com/github-btn.html?user=pravj&repo=x3030&type=star&count=true', frameborder='0', scrolling='0', width='170px', height='20px')
 
 
   .container
     .columns
       .two-third.column.centered
-        .flash.flash-error(style='visibility:visible;') Woot! You have completed this level.
-
-        br
+        .flash(style='visibility:visible;')
+          | Woot! You have completed this level. 
+          button.btn.btn-sm.btn-outline(type='button') Start New Game
 
         - height = 13
         - width = 49
         - for (var row = 1; row <= height; row++)
           div.board
             - for (var col = 1; col <= width; col++)
-              span.emojimage
-                - if ((Math.floor(Math.random()*3))%3 == 0)
-                  a(href='#')
-                    img(src='https://assets-cdn.github.com/images/icons/emoji/unicode/1f332.png?v5' height='20' width='20')
-                - else if ((Math.floor(Math.random()*3))%3 == 1)
-                  a(href='http://pravj.github.io/%%30%30')
-                    img(src='https://assets-cdn.github.com/images/icons/emoji/unicode/1f3e0.png?v5' height='20' width='20')
-                - else
-                  a(href='http://pravj.github.io/%%30%30')
-                    img(src='https://assets-cdn.github.com/images/icons/emoji/unicode/1f6a7.png?v5' height='20' width='20')
+              span(id='#{49*(row-1) + col - 1}')
+                a(href='#')
+                  img(src='/favicon.ico' height='20' width='20')
