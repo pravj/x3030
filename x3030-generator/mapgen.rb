@@ -4,6 +4,7 @@
 # Mapgen Iterative division
 #-----------------------------------------------
 # Extended from the version by Mau Magnaguagno
+# https://github.com/Maumagnaguagno/Map_generator
 #-----------------------------------------------
 
 require 'json'
